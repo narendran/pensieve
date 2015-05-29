@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pensieve</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <style>
-        /* Courtesy (vertical centering is hard with CSS) : http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
-        .content {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-    </style>
+        <style>
+            /* Courtesy (vertical centering is hard with CSS) : http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
+            .content {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -23,13 +23,44 @@
         </div>
         </nav>
         <div class="container content" style="height=100%; width=100%">
-            <ul>
-                <li>TODO: Will have a button for taking photo using mobile camera
-                <li>TODO: Will have a text box for entering content
-                <li>TODO: Will have a submit button in the middle to submit the image just captured. On Submit, the image is POSTed to the node server.
-            </ul>
+            <span class="btn-success">
+                <input type="file" id="take-picture" accept="image/*">
+            </span>
+            <div class="container" style="padding:10px">
+                <img id="show-picture"></img>
+            </div>
+            <div class="container" style="padding:10px">
+                <input type="text" class="form-control" id="text" placeholder="(Optional) Enter Text">
+            </div>
+            <div class="container">
+                <button class="btn btn-success" type="button">Submit</button>
+            </div>
         </div>
     </body>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+
+        var takePicture = document.querySelector("#take-picture");
+        var file;
+        takePicture.onchange = function(event) {
+            var files = event.target.files;
+            if (files && files.length > 0) {
+                file = files[0];
+            }
+        };
+
+        try {
+            var showPicture = document.querySelector("#show-picture");
+            var imgURL = window.URL.createObjectURL(file);
+            showPicture.src = imgURL;
+            URL.revokeObjectURL(imgURL);
+            } catch (e) {
+            var fileReader = new FileReader();
+            fileReader.onload = function(event) {
+                showPicture.src = event.target.result;
+            };
+            fileReader.readAsDataURL(file);
+        }
+    </script>
 </html>
 
