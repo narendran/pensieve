@@ -10,7 +10,7 @@ People watching the stream of photos can "like" photos as they are streamed. Bas
 
 ## Design
 
-I will update this section once I get a sense of the architecture. As of now, its going to be something based on nodejs, websocket, base64 with a HTML/CSS/JS front-end. I am little skeptical about doing image processing with javascript.
+I will update this section once I get a sense of the architecture. As of now, its going to be something based on express+nodejs, websocket, base64 with a HTML/CSS/JS front-end. I am little skeptical about doing image processing with javascript.
 
 ## Contributions
 
