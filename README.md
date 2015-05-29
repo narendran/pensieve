@@ -1,3 +1,5 @@
+[ ![Codeship Status for narendran/pensieve](https://codeship.com/projects/0967cac0-e821-0132-b8ea-16e9dffe0695/status?branch=master)](https://codeship.com/projects/82708)
+
 # Pensieve
 
 A system for real-time crowdsourced photo aggregation and sharing. It is intended to be used in celebrations like marriage functions, birthday parties etc..
